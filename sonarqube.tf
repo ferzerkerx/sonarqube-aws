@@ -234,4 +234,5 @@ resource "aws_db_instance" "sonarqube_db" {
   username = "sonarqubeUser"
   password = "sonarqubeSecret"
   vpc_security_group_ids = ["${aws_default_security_group.default.id}"]
+  skip_final_snapshot = true
 }
