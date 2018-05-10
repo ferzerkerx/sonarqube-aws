@@ -198,7 +198,6 @@ data "template_file" "sonarqube_task_definition" {
   template = "${file("sonarqube.json")}"
 
   vars {
-//    repository_url  = "${aws_ecr_repository.sonarqube.repository_url}" use this to pull a customized image
     repository_url  = "sonarqube"
   }
 }
