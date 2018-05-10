@@ -1,7 +1,6 @@
 customized-image/target/
 
-*.tfstate.backup
-*.tfstate
+*.tfstate*
 
 
 *.iml
