@@ -10,6 +10,11 @@
         "containerPort": 9000,
         "hostPort": 9000
       }
+    ],
+    "environment" : [
+      { "name" : "SONARQUBE_JDBC_USERNAME", "value" : "sonarqubeUser" },
+      { "name" : "SONARQUBE_JDBC_PASSWORD", "value" : "sonarqubeSecret" },
+      { "name" : "SONARQUBE_JDBC_URL", "value" : "jdbc:postgresql://${db_endpoint}/sonarqube" }
     ]
   }
 ]

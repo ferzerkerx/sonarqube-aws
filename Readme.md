@@ -1,6 +1,7 @@
 ## Creates the basic infrastructure to deploy sonarqube on AWS ECS
 
 - Make sure aws config is pointing to the right place
+- create a private key on aws so that we are able to ssh into it
 - terraform init
 - terraform plan
 - If all looks good proceed with terraform apply
@@ -19,6 +20,7 @@
     
       vars {
         repository_url  = "${aws_ecr_repository.sonarqube.repository_url}"
+        db_endpoint  = "${aws_db_instance.sonarqube_db.endpoint}"
       }
 }
 ```

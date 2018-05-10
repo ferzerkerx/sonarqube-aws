@@ -199,6 +199,7 @@ data "template_file" "sonarqube_task_definition" {
 
   vars {
     repository_url  = "sonarqube"
+    db_endpoint  = "${aws_db_instance.sonarqube_db.endpoint}"
   }
 }
 
@@ -220,4 +221,17 @@ resource "aws_ecs_service" "sonarqube" {
     container_name = "sonarqube"
     container_port = 9000
   }
+}
+
+resource "aws_db_instance" "sonarqube_db" {
+  allocated_storage = "10"
+  storage_type = "gp2"
+  engine = "postgres"
+  engine_version = "9.6"
+  instance_class = "db.t2.micro"
+  identifier = "sonarqube"
+  name = "sonarqube"
+  username = "sonarqubeUser"
+  password = "sonarqubeSecret"
+  vpc_security_group_ids = ["${aws_default_security_group.default.id}"]
 }
