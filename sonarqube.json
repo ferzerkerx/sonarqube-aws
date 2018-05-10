@@ -1,0 +1,15 @@
+[
+  {
+    "name": "sonarqube",
+    "image": "${repository_url}:latest",
+    "cpu": 10,
+    "memory": 2048,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 9000,
+        "hostPort": 9000
+      }
+    ]
+  }
+]
